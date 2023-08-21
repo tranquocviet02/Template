@@ -1,0 +1,55 @@
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" id="hotnewsbrow">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Tin nổi bật</h5>
+                <button type="button" class="close btnclose" style="background-color:white;border:none" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12">
+                    <div id="formAdd" class="row animated">
+                        <div class="col-md-12">
+                            <div class="ibox float-e-margins" id="qrTableForm">
+                                <div class="ibox-content">
+                                    <input type="hidden" id="IdNews" class="form-control">
+                                    <div class="row">
+                                        <div class="form-group form-material col-xl-12">
+                                            <label class="form-col-form-label">Danh mục</label>
+                                            <input class="form-control" type="text" id="lblCate" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group form-material col-xl-12">
+                                            <label class="form-col-form-label">Bài viết</label>
+                                            <input class="form-control" type="text" id="lblTitle" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group form-material col-xl-12">
+                                            <label class="form-col-form-label">Vị trí</label>
+                                            <select class="form-control" id="Position" required>
+                                                <option value="-1" selected="selected">-- Mặc định theo chuyên mục --</option>
+                                                <option value="1">Top 1 trang chủ</option>
+                                                <option value="9">Top 2 trang chủ</option>
+                                                <option value="10">Top 3 trang chủ</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-left:600px">
+                                        <div class="container">
+                                            <div style="text-align: center; margin-top: 10px;">
+                                                <button id="btnsavehotnews" class="btn w-md btn-info btn-rounded waves-effect waves-light"> Lưu</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+use MNG_Teacher
+go
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+Create procedure [dbo].[Sp_Ads_ListAllPaging]
+
+(
+@keyword nvarchar(500),
+@pageIndex int,
+@pageSize int,
+@totalRow int output
+)
+AS
+BEGIN
+	DECLARE @textsearch NVARCHAR(2000) = '%' + @keyword + '%'
+
+	SET @totalRow = (
+			SELECT Count(*)
+			FROM (
+				SELECT t.MonHoc,t.TietHoc,t.SoTiet,t.Ngay,c.TenLop
+	FROM TimeTable t
+	LEFT JOIN Class c ON c.ID = t.ClassId
+	WHERE (
+			@keyword IS NULL
+			OR MonHoc LIKE @textsearch
+			)
+	
+				) AS T
+			)
+
+	SELECT t.MonHoc,t.TietHoc,t.SoTiet,t.Ngay,c.TenLop
+	FROM TimeTable t
+	LEFT JOIN Class c ON c.ID = t.ClassId
+	WHERE (
+			@keyword IS NULL
+			OR MonHoc LIKE @textsearch
+			)
+
+	
+	ORDER BY T.ID OFFSET @pageIndex ROWS
+
+	FETCH NEXT @pageSize ROWS ONLY
+END
